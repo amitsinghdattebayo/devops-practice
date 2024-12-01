@@ -1,11 +1,15 @@
-FROM node:current-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package*.json .
+# Copy package.json and package-lock.json (or npm-shrinkwrap.json) first
+COPY package*.json .    
 
-RUN npm install 
+# Install dependencies
+RUN npm install
 
+# Copy the rest of the app
 COPY . .
 
-CMD ["npm","start"]
+# Start the app
+CMD ["npm", "start"]
