@@ -3,7 +3,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy package.json and package-lock.json (or npm-shrinkwrap.json) first
-COPY package*.json .    
+COPY package*.json /app/
 
 # Install dependencies
 RUN npm install
